@@ -1,0 +1,3 @@
+com/magdemy/dboard_api/repository/EventRepository.class
+com/magdemy/dboard_api/model/Event.class
+com/magdemy/dboard_api/service/EventService.class

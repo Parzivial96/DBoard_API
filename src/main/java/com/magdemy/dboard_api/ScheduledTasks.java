@@ -1,5 +1,6 @@
 package com.magdemy.dboard_api;
 
+import com.magdemy.dboard_api.service.EventService;
 import com.magdemy.dboard_api.service.MarqueeService;
 import com.magdemy.dboard_api.service.NoticeService;
 import com.magdemy.dboard_api.service.TodoService;
@@ -19,6 +20,9 @@ public class ScheduledTasks {
     @Autowired
     private MarqueeService marqueeService;
 
+    @Autowired
+    private EventService eventService;
+
     @Scheduled(fixedRate = 24 * 60 * 60 * 1000) // Run every 24 hours
     public void deleteExpiredImages() {
         noticeService.deleteExpiredImages();
@@ -32,5 +36,10 @@ public class ScheduledTasks {
     @Scheduled(fixedRate = 24 * 60 * 60 * 1000) // Run every 24 hours
     public void deleteExpiredMarquee() {
         marqueeService.deleteExpiredMarquees();
+    }
+
+    @Scheduled(fixedRate = 24 * 60 * 60 * 1000) // Run every 24 hours
+    public void deleteExpiredEvent() {
+        eventService.deleteExpiredEvents();
     }
 }

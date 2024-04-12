@@ -1,8 +1,10 @@
 package com.magdemy.dboard_api.controller;
 
+import com.magdemy.dboard_api.model.Event;
 import com.magdemy.dboard_api.model.Marquee;
 import com.magdemy.dboard_api.model.Notice;
 import com.magdemy.dboard_api.model.Todo;
+import com.magdemy.dboard_api.service.EventService;
 import com.magdemy.dboard_api.service.MarqueeService;
 import com.magdemy.dboard_api.service.NoticeService;
 import com.magdemy.dboard_api.service.TodoService;
@@ -24,6 +26,10 @@ public class NoticeController {
 
     @Autowired
     private MarqueeService marqueeService;
+
+    @Autowired
+    private EventService eventService;
+
 
     @GetMapping("/getAllNotice")
     public List<Notice> getAllNotice(){
@@ -55,6 +61,23 @@ public class NoticeController {
     @GetMapping("/getAllTodo")
     public List<Todo> getAllTodo(){
         return todoService.getAllTodo();
+    }
+
+
+    @PostMapping("/uploadEvent")
+    public String uploadEvent(@RequestBody Event event){
+        try {
+            eventService.saveEvent(event.getTextData(),event.getExpiryDate());
+            return "Uploaded Successfully";
+        }
+        catch (Exception e){
+            return "Upload Error";
+        }
+    }
+
+    @GetMapping("/getAllEvent")
+    public List<Event> getAllEvent(){
+        return eventService.getAllEvent();
     }
 
 

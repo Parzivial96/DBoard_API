@@ -1,8 +1,6 @@
 package com.magdemy.dboard_api.service;
 
-import com.magdemy.dboard_api.model.Notice;
 import com.magdemy.dboard_api.model.Todo;
-import com.magdemy.dboard_api.repository.NoticeRepository;
 import com.magdemy.dboard_api.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

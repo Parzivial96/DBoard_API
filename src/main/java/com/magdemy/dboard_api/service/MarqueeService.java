@@ -1,7 +1,6 @@
 package com.magdemy.dboard_api.service;
 
 import com.magdemy.dboard_api.model.Marquee;
-import com.magdemy.dboard_api.model.Todo;
 import com.magdemy.dboard_api.repository.MarqueeRepository;
 import com.magdemy.dboard_api.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
