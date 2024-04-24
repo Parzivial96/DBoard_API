@@ -25,6 +25,11 @@ public class NoticeService {
         return noticeRepository.findAll();
     }
 
+
+    public void deleteNotice(String id){
+        noticeRepository.deleteById(id);
+    }
+
     public void deleteExpiredImages() {
         List<Notice> notices = noticeRepository.findAll();
         LocalDate currentDate = LocalDate.now();

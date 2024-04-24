@@ -25,6 +25,10 @@ public class TodoService {
         return todoRepository.save(todo);
     }
 
+    public void deleteTodo(String id){
+        todoRepository.deleteById(id);
+    }
+
     public void deleteExpiredTodos() {
         List<Todo> todos = todoRepository.findAll();
         LocalDate currentDate = LocalDate.now();

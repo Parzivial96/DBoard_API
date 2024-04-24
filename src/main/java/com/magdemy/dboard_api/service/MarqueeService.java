@@ -26,6 +26,10 @@ public class MarqueeService {
         return marqueeRepository.save(marquee);
     }
 
+    public void deleteMarquee(String id){
+        marqueeRepository.deleteById(id);
+    }
+
     public void deleteExpiredMarquees() {
         List<Marquee> marquees = marqueeRepository.findAll();
         LocalDate currentDate = LocalDate.now();

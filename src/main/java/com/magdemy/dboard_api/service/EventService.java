@@ -25,6 +25,10 @@ public class EventService {
         return eventRepository.save(event);
     }
 
+    public void deleteEvent(String id){
+        eventRepository.deleteById(id);
+    }
+
     public void deleteExpiredEvents() {
         List<Event> events = eventRepository.findAll();
         LocalDate currentDate = LocalDate.now();

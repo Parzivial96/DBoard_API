@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -95,5 +96,29 @@ public class NoticeController {
     @GetMapping("/getAllMarquee")
     public List<Marquee> getAllMarquee(){
         return marqueeService.getAllMarquee();
+    }
+
+    @PostMapping("/deleteMarquee")
+    public void deleteMarquee(@RequestBody Map<String, String> request){
+        String id = request.get("id");
+        marqueeService.deleteMarquee(id);
+    }
+
+    @PostMapping("/deleteTodo")
+    public void deleteTodo(@RequestBody Map<String, String> request){
+        String id = request.get("id");
+        todoService.deleteTodo(id);
+    }
+
+    @PostMapping("/deleteNotice")
+    public void deleteNotice(@RequestBody Map<String, String> request){
+        String id = request.get("id");
+        noticeService.deleteNotice(id);
+    }
+
+    @PostMapping("/deleteEvent")
+    public void deleteEvent(@RequestBody Map<String, String> request){
+        String id = request.get("id");
+        eventService.deleteEvent(id);
     }
 }
